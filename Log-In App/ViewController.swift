@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         welcomeVC.username = username
     }
     
-    @IBAction func logInButtonPressed(_ sender: Any) {
+    @IBAction func logInButtonPressed() {
         guard usernameTF.text == username, passwordTF.text == password else {
             showAlert(
                 title: "Access denied",
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             )
             return
         }
+        performSegue(withIdentifier: "welcomeVC", sender: nil)
     }
     
     @IBAction func forgotButton(_ sender: UIButton) {
@@ -43,12 +44,6 @@ class ViewController: UIViewController {
     }
 }
 
-
-
-
-
-
-
 // MARK: - Alert Controller
 extension ViewController {
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
@@ -59,25 +54,21 @@ extension ViewController {
         alert.addAction(okButton)
         present(alert, animated: true)
     }
-    
 }
 
-
-
-
-
-
-
-
-
-//// MARK: - Alert Controller
-//extension ViewController {
-//    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-//            textField?.text = ""
-//        }
-//        alert.addAction(okAction)
-//        present(alert, animated: true)
-//    }
-//}
+// MARK: - keyboard
+extension ViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logInButtonPressed()
+        }
+        return true
+    }
+}

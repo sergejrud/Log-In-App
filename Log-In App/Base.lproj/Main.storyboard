@@ -41,7 +41,6 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kzu-hY-pfX"/>
-                                            <segue destination="jbH-Jj-YSG" kind="presentation" id="K4U-rI-cnU"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="odN-Jq-ZhG">
@@ -85,6 +84,7 @@
                     <connections>
                         <outlet property="passwordTF" destination="S5I-rB-s7B" id="Atd-wb-cQx"/>
                         <outlet property="usernameTF" destination="v1R-2J-l5F" id="a5A-r7-HNj"/>
+                        <segue destination="jbH-Jj-YSG" kind="presentation" identifier="welcomeVC" id="mIT-2X-FiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
