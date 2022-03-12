@@ -72,15 +72,3 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-    
-    
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == usernameTF {
-//            passwordTF.becomeFirstResponder()
-//        } else {
-//            logInButtonPressed()
-//        }
-//        return true
-//    }
-//}
