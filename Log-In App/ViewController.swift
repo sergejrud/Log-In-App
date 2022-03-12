@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.username = username
     }
-    
+      
     @IBAction func logInButtonPressed() {
         guard usernameTF.text == username, passwordTF.text == password else {
             showAlert(
@@ -59,7 +59,7 @@ extension ViewController {
 // MARK: - keyboard
 extension ViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
@@ -72,3 +72,15 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
+    
+    
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == usernameTF {
+//            passwordTF.becomeFirstResponder()
+//        } else {
+//            logInButtonPressed()
+//        }
+//        return true
+//    }
+//}
