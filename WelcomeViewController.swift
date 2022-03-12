@@ -9,9 +9,12 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet var WelcomeTF: UILabel!
+    
+    var username = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        WelcomeTF.text = "Welcome, \(username)"
     }
-    
-
 }
